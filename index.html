@@ -3,458 +3,222 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Deepak Sharma - Portfolio & Resume</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --primary: #0F2942;
-    --accent: #2B6CB0;
-    --accent-light: #EBF8FF;
-    --card-bg: #FFFFFF;
-    --text-main: #2D3748;
-    --text-muted: #64748B;
-    --border: #E2E8F0;
-  }
-
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-
-  body {
-    font-family: 'Inter', -apple-system, sans-serif;
-    color: var(--text-main);
-    background-color: #F8FAFC;
-    line-height: 1.6;
-  }
-
-  nav {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: rgba(15, 41, 66, 0.95);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-    padding: 14px 0;
-  }
-
-  .nav-container {
-    max-width: 1000px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px;
-  }
-
-  .logo {
-    font-size: 18px;
-    font-weight: 700;
-    color: #FFFFFF;
-    letter-spacing: 0.5px;
-  }
-
-  .nav-links {
-    display: flex;
-    gap: 20px;
-    list-style: none;
-  }
-
-  .nav-links a {
-    color: #CBD5E1;
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 500;
-    transition: color 0.2s;
-  }
-
-  .nav-links a:hover { color: #FFFFFF; }
-
-  .btn-print {
-    background: var(--accent);
-    color: #FFF;
-    border: none;
-    padding: 9px 18px;
-    border-radius: 6px;
-    font-weight: 600;
-    font-size: 13.5px;
-    cursor: pointer;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-    transition: all 0.2s;
-  }
-
-  .btn-print:hover { background: #1D4ED8; transform: translateY(-1px); }
-
-  .hero {
-    background: linear-gradient(135deg, #0F2942 0%, #1E3A8A 100%);
-    color: #FFFFFF;
-    padding: 50px 20px;
-  }
-
-  .hero-container {
-    max-width: 1000px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    gap: 35px;
-    flex-wrap: wrap;
-  }
-
-  .profile-img-container {
-    width: 160px;
-    height: 160px;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 4px solid rgba(255,255,255,0.25);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-    flex-shrink: 0;
-  }
-
-  .profile-img-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .hero-content h1 {
-    font-size: 32px;
-    font-weight: 700;
-    margin-bottom: 6px;
-  }
-
-  .hero-subtitle {
-    font-size: 16px;
-    color: #93C5FD;
-    font-weight: 500;
-    margin-bottom: 14px;
-  }
-
-  .hero-contact {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    font-size: 13px;
-    color: #E2E8F0;
-  }
-
-  .hero-contact span {
-    background: rgba(255,255,255,0.12);
-    padding: 4px 12px;
-    border-radius: 20px;
-  }
-
-  .hero-contact a {
-    color: #93C5FD;
-    text-decoration: none;
-  }
-
-  .main-content {
-    max-width: 1000px;
-    margin: 35px auto;
-    padding: 0 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-  }
-
-  .card {
-    background: var(--card-bg);
-    border-radius: 12px;
-    padding: 28px;
-    border: 1px solid var(--border);
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.04);
-  }
-
-  .section-header {
-    font-size: 15px;
-    font-weight: 700;
-    color: var(--primary);
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
-    margin-bottom: 14px;
-    border-bottom: 2px solid var(--accent-light);
-    padding-bottom: 6px;
-  }
-
-  .summary-text {
-    font-size: 14px;
-    color: #334155;
-    line-height: 1.7;
-  }
-
-  .skills-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-
-  .skill-badge {
-    background: var(--accent-light);
-    color: var(--accent);
-    font-weight: 600;
-    font-size: 12.5px;
-    padding: 6px 14px;
-    border-radius: 20px;
-    border: 1px solid #BFDBFE;
-  }
-
-  .skill-badge.highlight {
-    background: #FEF3C7;
-    color: #92400E;
-    border-color: #FDE68A;
-  }
-
-  .timeline {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .job-item {
-    border-left: 3px solid var(--accent);
-    padding-left: 16px;
-  }
-
-  .job-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    flex-wrap: wrap;
-    margin-bottom: 4px;
-  }
-
-  .job-title {
-    font-size: 14.5px;
-    font-weight: 700;
-    color: var(--primary);
-  }
-
-  .company-name {
-    color: var(--accent);
-    font-weight: 600;
-  }
-
-  .badge-tag {
-    font-size: 10.5px;
-    font-weight: 600;
-    padding: 2px 7px;
-    border-radius: 4px;
-    text-transform: uppercase;
-    margin-left: 6px;
-  }
-
-  .badge-present { background: #DCFCE7; color: #166534; }
-  .badge-contract { background: #EFF6FF; color: #1E40AF; }
-
-  .job-dates {
-    font-size: 12.5px;
-    color: var(--text-muted);
-    font-weight: 500;
-  }
-
-  .job-bullets {
-    list-style-type: disc;
-    margin-left: 18px;
-    font-size: 13px;
-    color: #475569;
-  }
-
-  .job-bullets li { margin-bottom: 4px; }
-
-  .grid-2 {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-  }
-
-  .list-simple { list-style: none; }
-
-  .list-simple li {
-    font-size: 13px;
-    color: #475569;
-    margin-bottom: 10px;
-    padding-left: 18px;
-    position: relative;
-  }
-
-  .list-simple li::before {
-    content: "•";
-    color: var(--accent);
-    font-weight: bold;
-    font-size: 18px;
-    position: absolute;
-    left: 0;
-    top: -2px;
-  }
-
-  footer {
-    text-align: center;
-    padding: 25px;
-    color: var(--text-muted);
-    font-size: 12.5px;
-    border-top: 1px solid var(--border);
-    margin-top: 30px;
-  }
-
-  @media print {
-    nav, footer, .btn-print { display: none !important; }
-    body { background: #FFF; color: #000; font-size: 11pt; }
-    .hero { background: none; color: #000; padding: 0; margin-bottom: 15px; border-bottom: 2px solid #000; }
-    .hero-content h1 { color: #000; font-size: 20pt; }
-    .hero-subtitle { color: #333; font-size: 11pt; }
-    .hero-contact { color: #000; }
-    .hero-contact span { background: none; padding: 0; }
-    .profile-img-container { display: none; }
-    .main-content { margin: 0; padding: 0; max-width: 100%; gap: 12px; }
-    .card { box-shadow: none; border: none; padding: 0; margin-bottom: 12px; }
-    .section-header { border-bottom: 1px solid #000; color: #000; }
-    .job-item { border-left: none; padding-left: 0; margin-bottom: 10px; }
-  }
-</style>
+<title>Deepak Sharma — Customer Support Specialist</title>
+<meta name="description" content="Deepak Sharma — Customer Support Specialist with 3 years across global BPOs (Amazon, Shopify, Booking.com) plus hands-on AI & agentic development skills.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <nav>
-    <div class="nav-container">
-      <div class="logo">DEEPAK SHARMA</div>
-      <ul class="nav-links">
-        <li><a href="#summary">Summary</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#hobbies">Hobbies</a></li>
-      </ul>
-      <button class="btn-print" onclick="window.print()">📄 Download / Print PDF Resume</button>
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="#top" class="brand"><span class="monogram">DS</span><span class="brand-name">Deepak Sharma</span></a>
+    <div class="nav-links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#metrics">Results</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
     </div>
-  </nav>
+    <a href="Deepak_Sharma_Resume.pdf" download class="btn btn-sm">Download Résumé</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
 
-  <header class="hero">
-    <div class="hero-container">
-      <div class="hero-content">
-        <h1>DEEPAK SHARMA</h1>
-        <div class="hero-subtitle">Customer Support & Operations Specialist | L2 Escalations & Quality</div>
-        <div class="hero-contact">
-          <span>📞 +91 8448736983</span>
-          <span>✉️ <a href="mailto:deepak.sharma1111@zohomail.in">deepak.sharma1111@zohomail.in</a></span>
-          <span>📍 New Delhi, India</span>
+<header class="hero" id="top">
+  <div class="hero-bg"></div>
+  <div class="hero-inner">
+    <div class="hero-photo reveal">
+      <img src="deepak-image.jpeg" alt="Deepak Sharma">
+    </div>
+    <div class="hero-text">
+      <p class="eyebrow reveal">Hello, I'm</p>
+      <h1 class="reveal">Deepak <span class="grad">Sharma</span></h1>
+      <p class="role reveal">Customer Support Specialist · International Processes</p>
+      <p class="tagline reveal">3 years delivering world-class voice, chat &amp; email support for Amazon, Shopify and Booking.com — now pairing support craft with hands-on AI &amp; agentic development.</p>
+      <div class="hero-cta reveal">
+        <a href="Deepak_Sharma_Resume.pdf" download class="btn btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download Résumé
+        </a>
+        <a href="#contact" class="btn btn-ghost">Get in Touch</a>
+      </div>
+      <div class="hero-meta reveal">
+        <span>New Delhi, India</span><i>·</i><span>Open to Remote / Global Roles</span>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-hint"><span></span></div>
+</header>
+
+<section class="metrics" id="metrics">
+  <div class="wrap">
+    <h2 class="sec-title reveal">Measured <span class="grad">Results</span></h2>
+    <p class="sec-sub reveal">Consistent performance across every process, every quarter.</p>
+    <div class="metric-grid">
+      <div class="metric-card reveal"><div class="metric-num"><span class="count" data-target="95">0</span>%</div><div class="metric-label">CSAT Score</div></div>
+      <div class="metric-card reveal"><div class="metric-num"><span class="count" data-target="98">0</span>%</div><div class="metric-label">Quality Score</div></div>
+      <div class="metric-card reveal"><div class="metric-num"><span class="count" data-target="6">0</span> min</div><div class="metric-label">Avg. Handle Time</div></div>
+      <div class="metric-card reveal"><div class="metric-num"><span class="count" data-target="100">0</span>%</div><div class="metric-label">Hygiene &amp; Attendance</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap">
+    <h2 class="sec-title reveal">About <span class="grad">Me</span></h2>
+    <div class="about-grid">
+      <p class="reveal">I'm a customer support specialist with ~3 years across leading global BPOs — <strong>Concentrix, TaskUs, Teleperformance and Majorel</strong> — supporting international (North America &amp; global) processes for <strong>Amazon, Shopify and Booking.com</strong>. I specialise in high-volume voice, chat and email support, L2 escalations and quality mentorship, with a record of consistent performance across contractual international assignments.</p>
+      <p class="reveal">What sets me apart: I'm hands-on with <strong>Git/GitHub and agentic AI development</strong> — directing AI coding agents and building LLM-powered workflows and automations. That practical AI fluency is exactly what modern, AI-first support teams are hiring for.</p>
+    </div>
+    <div class="fact-row reveal">
+      <div class="fact"><strong>3</strong><span>Years Experience</span></div>
+      <div class="fact"><strong>5</strong><span>Global Processes</span></div>
+      <div class="fact"><strong>8+</strong><span>Support Platforms</span></div>
+      <div class="fact"><strong>NA + Global</strong><span>Markets Served</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="experience" id="experience">
+  <div class="wrap">
+    <h2 class="sec-title reveal">Professional <span class="grad">Experience</span></h2>
+    <p class="sec-sub reveal">Contractual international assignments with top-tier BPOs.</p>
+    <div class="timeline">
+      <div class="t-item reveal">
+        <div class="t-dot"></div>
+        <div class="t-card">
+          <div class="t-head"><h3>Customer Support Specialist <em>(Contract)</em></h3><span class="t-date">Oct 2025 – Present</span></div>
+          <p class="t-co">TaskUs India Private Limited · <span>Amazon (North America)</span></p>
+          <ul>
+            <li>End-to-end voice, chat &amp; email support for Amazon's NA customers, meeting SLA and quality benchmarks.</li>
+            <li>Identify recurring pain points and collaborate with stakeholders to streamline workflows.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="t-item reveal">
+        <div class="t-dot"></div>
+        <div class="t-card">
+          <div class="t-head"><h3>L2 Senior Customer Care Executive <em>(Contract)</em></h3><span class="t-date">Jul 2025 – Sep 2025</span></div>
+          <p class="t-co">Teleperformance India · <span>Banking (Global)</span></p>
+          <ul>
+            <li>Managed complex L2 escalations and high-priority troubleshooting for a global banking process.</li>
+            <li>Coordinated with technical teams while holding a 98% quality bar.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="t-item reveal">
+        <div class="t-dot"></div>
+        <div class="t-card">
+          <div class="t-head"><h3>Customer Support Executive <em>(Contract)</em></h3><span class="t-date">Jan 2025 – Apr 2025</span></div>
+          <p class="t-co">Majorel (now Teleperformance) · <span>Booking.com (Global)</span></p>
+          <ul>
+            <li>Resolved queries for Booking.com's global customer base across international communications.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="t-item reveal">
+        <div class="t-dot"></div>
+        <div class="t-card">
+          <div class="t-head"><h3>Customer Support Executive <em>(Contract)</em></h3><span class="t-date">Sep 2024 – Dec 2024</span></div>
+          <p class="t-co">TaskUs India (Payroll Partner) · <span>Shopify (Global)</span></p>
+          <ul>
+            <li>Chat &amp; email support for Shopify's global merchants across international time zones.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="t-item reveal">
+        <div class="t-dot"></div>
+        <div class="t-card">
+          <div class="t-head"><h3>Customer Service Advisor</h3><span class="t-date">2023 – 2024</span></div>
+          <p class="t-co">Concentrix · <span>Amazon (North America)</span></p>
+          <ul>
+            <li>Core customer service in a high-volume BPO environment with accurate CRM documentation.</li>
+          </ul>
         </div>
       </div>
     </div>
-  </header>
+  </div>
+</section>
 
-  <main class="main-content">
-
-    <section id="summary" class="card">
-      <div class="section-header">Executive Summary</div>
-      <p class="summary-text">
-        Results-driven Customer Support and Operations Specialist with extensive experience across leading global BPO organizations, specializing in international process management, L2 issue escalations, quality monitoring, and customer query resolution. Recognized for maintaining high service standards, resolving complex customer concerns efficiently, and executing quality evaluations as a Floor Mentor and Temporary Quality Analyst (TEMP QA).
-      </p>
-    </section>
-
-    <section id="skills" class="card">
-      <div class="section-header">Core Competencies & Skills</div>
-      <div class="skills-grid">
-        <div class="skill-badge">Customer Service</div>
-        <div class="skill-badge">International Process Handling</div>
-        <div class="skill-badge">L2 Escalation Management</div>
-        <div class="skill-badge">Quality Assurance (QA Testing)</div>
-        <div class="skill-badge">Floor Mentorship</div>
-        <div class="skill-badge">Query Resolution</div>
-        <div class="skill-badge">De-escalation Strategies</div>
-        <div class="skill-badge">Process Adherence</div>
-        <div class="skill-badge highlight">💻 Web & Software Development</div>
-        <div class="skill-badge">MS Office (Excel, Word)</div>
-        <div class="skill-badge">Conflict Resolution</div>
-        <div class="skill-badge">Operations Monitoring</div>
-      </div>
-    </section>
-
-    <section id="experience" class="card">
-      <div class="section-header">Professional Experience</div>
-      <div class="timeline">
-
-        <div class="job-item">
-          <div class="job-header">
-            <div class="job-title">Customer Service Specialist <span class="company-name">| TaskUs India Private Limited</span> <span class="badge-tag badge-present">Current</span></div>
-            <div class="job-dates">October 2026 – Present</div>
-          </div>
-          <ul class="job-bullets">
-            <li>Deliver end-to-end customer support for key client processes, accurately resolving inquiries and maintaining high service quality benchmarks.</li>
-            <li>Identify recurring customer pain points and collaborate with team leads to streamline communication and operational workflow efficiency.</li>
-            <li>Ensure compliance with company standards, SLA requirements, and operational metrics across daily interactions.</li>
-          </ul>
-        </div>
-
-        <div class="job-item">
-          <div class="job-header">
-            <div class="job-title">L2 Senior Customer Care Executive <span class="company-name">| Teleperformance India Private Limited</span> <span class="badge-tag badge-contract">Contractual</span></div>
-            <div class="job-dates">July 2025 – September 2025</div>
-          </div>
-          <ul class="job-bullets">
-            <li>Managed complex L2 customer escalations, systematically troubleshooting high-priority issues to provide accurate resolutions.</li>
-            <li>Maintained high service quality standards while coordinating with internal technical teams.</li>
-          </ul>
-        </div>
-
-        <div class="job-item">
-          <div class="job-header">
-            <div class="job-title">Senior Customer Care Executive <span class="company-name">| Bestlersman Services Private Limited</span> <span class="badge-tag badge-contract">Contractual</span></div>
-            <div class="job-dates">January 2025 – April 2025</div>
-          </div>
-          <ul class="job-bullets">
-            <li>Handled customer query resolution across international communications, preserving company service standards.</li>
-            <li>Addressed customer concerns efficiently while adhering to operational protocols.</li>
-          </ul>
-        </div>
-
-        <div class="job-item">
-          <div class="job-header">
-            <div class="job-title">Customer Service Advisor <span class="company-name">| TaskUs India Private Limited</span> <span class="badge-tag badge-contract">Contractual</span></div>
-            <div class="job-dates">September 2024 – December 2024</div>
-          </div>
-          <ul class="job-bullets">
-            <li>Managed customer inquiries for an international process, ensuring fast, accurate, and empathetic resolution.</li>
-            <li>Earned performance-based rewards and certifications.</li>
-            <li>Appointed as Floor Mentor and Temporary QA (TEMP QA), conducting quality audits.</li>
-          </ul>
-        </div>
-
-        <div class="job-item">
-          <div class="job-header">
-            <div class="job-title">Customer Support Executive <span class="company-name">| Concentrix</span></div>
-            <div class="job-dates">August 2024 – August 2025</div>
-          </div>
-          <ul class="job-bullets">
-            <li>Provided core customer service support in a high-volume BPO operational environment.</li>
-            <li>Maintained accurate customer interaction documentation in internal CRM databases.</li>
-          </ul>
-        </div>
-
-      </div>
-    </section>
-
-    <div class="grid-2">
-      <section id="education" class="card">
-        <div class="section-header">Education</div>
-        <ul class="list-simple">
-          <li><strong>B.A. Political Science (Honours)</strong><br>Delhi University (Graduated: 2026)</li>
-          <li><strong>Class XII — CBSE</strong><br>Kendriya Vidyalaya Pushp Vihar (2021 – 2022)</li>
-          <li><strong>Class X — CBSE</strong><br>Kendriya Vidyalaya Pushp Vihar (2019 – 2020)</li>
+<section class="skills" id="skills">
+  <div class="wrap">
+    <h2 class="sec-title reveal">Skills &amp; <span class="grad">Toolset</span></h2>
+    <div class="skill-grid">
+      <div class="skill-card reveal">
+        <div class="skill-icon">◈</div>
+        <h3>Support Excellence</h3>
+        <ul>
+          <li>International voice, chat &amp; email support</li>
+          <li>L2 escalation management</li>
+          <li>Quality assurance, audits &amp; floor mentorship</li>
+          <li>SLA compliance &amp; conflict resolution</li>
         </ul>
-      </section>
-
-      <section id="hobbies" class="card">
-        <div class="section-header">Hobbies & Interests</div>
-        <ul class="list-simple">
-          <li><strong>💻 Web & Software Development:</strong> Building modern web applications, exploring programming frameworks, and coding web projects.</li>
-          <li><strong>⚙️ Process Optimization:</strong> Studying operational workflows and customer service automation tools.</li>
-          <li><strong>📚 Continuous Learning:</strong> Exploring technology, political science literature, and communication skills.</li>
+      </div>
+      <div class="skill-card reveal accent">
+        <div class="skill-icon">✦</div>
+        <h3>AI &amp; Technical Edge</h3>
+        <ul>
+          <li>Agentic AI development — AI coding agents</li>
+          <li>LLM workflows &amp; automations</li>
+          <li>Prompt engineering</li>
+          <li>Git &amp; GitHub · Web fundamentals</li>
         </ul>
-      </section>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-icon">▣</div>
+        <h3>Platforms</h3>
+        <div class="tags">
+          <span>Zendesk</span><span>Salesforce</span><span>HubSpot</span><span>Zoho Desk</span>
+          <span>Paragon</span><span>Athena</span><span>Beacon</span><span>AWS</span><span>MS Office</span>
+        </div>
+      </div>
     </div>
+  </div>
+</section>
 
-  </main>
+<section class="ai-edge">
+  <div class="wrap reveal">
+    <div class="edge-card">
+      <div>
+        <h2>Support craft × <span class="grad">AI fluency</span></h2>
+        <p>Most support specialists know the process. Few can also direct AI agents, engineer prompts and automate workflows. I do both — which is why AI-first companies list "AI fluency" as a hiring requirement I already meet.</p>
+      </div>
+      <a href="Deepak_Sharma_Resume.pdf" download class="btn btn-primary">Download Résumé</a>
+    </div>
+  </div>
+</section>
 
-  <footer>
-    © 2026 Deepak Sharma. All Rights Reserved. | Customer Operations & Support Professional
-  </footer>
+<section class="contact" id="contact">
+  <div class="wrap">
+    <h2 class="sec-title reveal">Let's <span class="grad">Connect</span></h2>
+    <p class="sec-sub reveal">Open to remote customer support, AI support and customer success roles.</p>
+    <div class="contact-grid">
+      <a class="c-card reveal" href="mailto:deepak.sharma1111@zohomail.in">
+        <span class="c-label">Email</span><span class="c-val">deepak.sharma1111@zohomail.in</span>
+      </a>
+      <a class="c-card reveal" href="tel:+918448736983">
+        <span class="c-label">Phone</span><span class="c-val">+91 84487 36983</span>
+      </a>
+      <a class="c-card reveal" href="https://github.com/partnersdejoiy-hash/portfolio" target="_blank" rel="noopener">
+        <span class="c-label">GitHub</span><span class="c-val">partnersdejoiy-hash</span>
+      </a>
+      <div class="c-card reveal">
+        <span class="c-label">Location</span><span class="c-val">New Delhi, India</span>
+      </div>
+    </div>
+  </div>
+</section>
 
+<footer>
+  <div class="wrap foot-inner">
+    <p>© <span id="year">2026</span> Deepak Sharma. All rights reserved.</p>
+    <a href="Deepak_Sharma_Resume.pdf" download class="foot-link">Download Résumé (PDF)</a>
+  </div>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
